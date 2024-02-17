@@ -1,0 +1,116 @@
+---
+title: "ExactCIone"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ExactCIone_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+options(rmarkdown.html_vignette.check_title = FALSE)
+```
+
+## Introduction
+This vignette serves an introduction to the R package 'ExactCIone', which is aimed at constructing the admissible exact confidence intervals (CI) for the binomial proportion, the poisson mean and the total number of subjects with a certain attribute or the total number of the subjects for the hypergeometric distribution. Both one-sided and two-sided CI are of interest. This package can be used to calculate the intervals constructed methods developed by Wang (2014) and Wang (2015).
+
+
+```{r setup}
+library(ExactCIone)
+```
+
+## Admissible exact CI for binomial proportion $p$
+
+Suppose $X\sim bino(n,p)$, the sample space of $X$ is $\{0,1,...,n\}$. Wang (2014) proposed an admissible interval for $p$ which is obtained by uniformly shrinking the initial $1-\alpha$ Clopper-Pearson interval from the middle to both sides of the sample space iteratively. This interval is admissible so that any proper sub-interval of it cannot assure the confidence coefficient. So the interval cannot be shortened anymore.
+
+```{r}
+# Compute the 95% confidence interval when x=2, n=5.
+WbinoCI(x=2,n=5,conf.level=0.95)
+```
+Use "details=TRUE" to show the CIs of the whole sample space.
+```{r}
+WbinoCI(x=2,n=5,conf.level=0.95,details=TRUE)
+```
+The one-sided intervals are the one-sided $1-\alpha$ Clopper-Pearson intervals (Clopper and Pearson, 1934). Also show all the CIs when "details=TRUE".
+```{r}
+WbinoCI_lower(x=2,n=5,conf.level=0.95)
+WbinoCI_lower(x=2,n=5,conf.level=0.95,details=TRUE)
+WbinoCI_upper(x=2,n=5,conf.level=0.95)
+WbinoCI_upper(x=2,n=5,conf.level=0.95,details=TRUE)
+```
+
+
+## Admissible exact CI for the poisson mean $\lambda$
+
+Suppose $X\sim poi(\lambda)$, the sample space of $X$ is $\{0,1,...\}$. Wang (2014) proposed an admissible interval for $\lambda$ which is obtained by uniformly shrinking the initial $1-\alpha$ Clopper-Pearson interval one by one from 0 to the sample point of interest. This interval is admissible so that any proper sub-interval of it cannot assure the confidence coefficient, which means the interval cannot be shortened anymore.
+
+```{r}
+# The admissible CI for poisson mean when the observed sample is x=3. 
+WpoisCI(x=3,conf.level = 0.95)
+#We show the intervals from 0 to the sample of interest when "details=TRUE".
+WpoisCI(x=3,conf.level = 0.95,details = TRUE)
+```
+The one-sided intervals are the one-sided $1-\alpha$ Clopper-Pearson intervals which is givend by Garwood (1936). Also shows all the CIs when "details=TRUE".
+```{r}
+WpoisCI_lower(x=3,conf.level = 0.95)
+WpoisCI_lower(x=3,conf.level = 0.95,details = TRUE)
+WpoisCI_upper(x=3,conf.level = 0.95)
+WpoisCI_upper(x=3,conf.level = 0.95,details = TRUE)
+```
+
+
+## Admissible exact confidence intervals for N, the number of balls in an urn.
+Suppose $X\sim Hyper(M,N,n)$. The sample space is $\{0,\ldots,\min(M,n)\}$. When $M$ and $n$ are known, Wang (2015) construct an admissible confidence interval for $N$ by uniformly shrinking the initial $1-\alpha$ Clopper-Pearson type interval from  0 to $\min(M,n)$. Also this interval cannot be shortened more.
+```{r}
+# For hyper(M,N,n), construct 95% CI for N on the observed sample x when n,M are known.
+WhyperCI_N(x=5,n=10,M=800,conf.level = 0.95)
+# It shows CIs for all the sample point When "details=TRUE".
+WhyperCI_N(x=5,n=10,M=800,conf.level = 0.95,details=TRUE)
+```
+
+The one-sided $1-\alpha$ CI for $N$ is the one-sided Clopper-Pearson type interval (Konijn, 1973).
+```{r}
+WhyperCI_N_lower(x=0,n=10,M=800,conf.level = 0.95)
+WhyperCI_N_lower(x=0,n=10,M=800,conf.level = 0.95,details=TRUE)
+WhyperCI_N_upper(x=0,n=10,M=800,conf.level = 0.95)
+WhyperCI_N_upper(x=0,n=10,M=800,conf.level = 0.95,details=TRUE)
+```
+
+
+## Admissible exact CI for $M$, the number of white balls in an urn
+Suppose $X\sim Hyper(M,N,n)$. When N and n are known, Wang (2015) construct an admissible confidence interval for N by uniformly shrinking the initial $1-\alpha$ Clopper-Pearson type interval from  the mid-point of the sample space to 0. This interval is admissible so that any proper sub-interval of it cannot assure the confidence coefficient. This means the interval cannot be shortened anymore.
+```{R}
+# For Hyper(M,N,n), construct the CI for M on the observed sample x when n, N are known. 
+# Also output CI for p=M/N.
+WhyperCI_M(x=0,n=10,N=2000,conf.level = 0.95)
+WhyperCI_M(x=0,n=10,N=2000,conf.level = 0.95,details = TRUE)
+```
+The one-sided $1-\alpha$ CI for $M$ is the one-sided Clopper-Pearson type interval (Konijn, 1973).
+```{R}
+WhyperCI_M_lower(X=0,n=10,N=2000,conf.level = 0.95)
+WhyperCI_M_lower(X=0,n=10,N=2000,conf.level = 0.95,details = TRUE)
+WhyperCI_M_upper(X=0,n=10,N=2000,conf.level = 0.95)
+WhyperCI_M_upper(X=0,n=10,N=2000,conf.level = 0.95,details = TRUE)
+
+```
+## Reference
+
+Clopper, C. J. and Pearson, E. S. (1934). The use of confidence or fiducial limits in the case of the binomial. "Biometrika" 26: 404-413.
+
+Garwood, F. (1936). Fiducial Limits for the Poisson Distribution. "Biometrika" 28:	437-442.
+
+Konijn, H. S. (1973). Statistical Theory of Sample Survey Design and Analysis, Amsterdam: North-Holland.
+
+Wang, W. (2014). An iterative construction of confidence intervals for a proportion. "Statistica Sinica" 24: 1389-1410.
+
+Wang, W. (2015). Exact Optimal Confidence Intervals for Hypergeometric Parameters. "Journal of the American Statistical Association" 110 (512): 1491-1499.
+ 
+
+
+
+
+
