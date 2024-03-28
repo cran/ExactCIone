@@ -388,28 +388,28 @@ confidence coefficient. So the interval cannot be shortened anymore.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">WbinoCI_lower</span>(<span class="at">x=</span><span class="dv">2</span>,<span class="at">n=</span><span class="dv">5</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; $CI</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;      sample      lower upper</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; [1,]      2 0.05274495     1</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; [1,]      2 0.07644039     1</span></span>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">WbinoCI_lower</span>(<span class="at">x=</span><span class="dv">2</span>,<span class="at">n=</span><span class="dv">5</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>,<span class="at">details=</span><span class="cn">TRUE</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; $CI</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;      sample       lower upper</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; [1,]      0 0.000000000     1</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; [2,]      1 0.005050763     1</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; [3,]      2 0.052744951     1</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; [4,]      3 0.146632800     1</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; [5,]      4 0.283582064     1</span></span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; [6,]      5 0.478176250     1</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;      sample      lower upper</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; [1,]      0 0.00000000     1</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; [2,]      1 0.01020622     1</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; [3,]      2 0.07644039     1</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; [4,]      3 0.18925538     1</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; [5,]      4 0.34259168     1</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; [6,]      5 0.54928027     1</span></span>
 <span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="fu">WbinoCI_upper</span>(<span class="at">x=</span><span class="dv">2</span>,<span class="at">n=</span><span class="dv">5</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
 <span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; $CI</span></span>
 <span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;      sample lower     upper</span></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; [1,]      2     0 0.8533672</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; [1,]      2     0 0.8107446</span></span>
 <span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="fu">WbinoCI_upper</span>(<span class="at">x=</span><span class="dv">2</span>,<span class="at">n=</span><span class="dv">5</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>,<span class="at">details=</span><span class="cn">TRUE</span>)</span>
 <span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt; $CI</span></span>
 <span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt;      sample lower     upper</span></span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt; [1,]      0     0 0.5218238</span></span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; [2,]      1     0 0.7164179</span></span>
-<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; [3,]      2     0 0.8533672</span></span>
-<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; [4,]      3     0 0.9472550</span></span>
-<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; [5,]      4     0 0.9949492</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt; [1,]      0     0 0.4507197</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; [2,]      1     0 0.6574083</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; [3,]      2     0 0.8107446</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt; [4,]      3     0 0.9235596</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt; [5,]      4     0 0.9897938</span></span>
 <span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; [6,]      5     0 1.0000000</span></span></code></pre></div>
 </div>
 <div id="admissible-exact-ci-for-the-poisson-mean-lambda" class="section level2">

@@ -1,4 +1,4 @@
-lcp_bino<-function(x,n,alpha,prec2=1e-12){
+lcp_bino<-function(x,n,alpha,prec2=1e-12){ # 1-alpha/2 lower CP interval
   if(length(x)>1){
     re<-x
     # the lower limit of 1-alpha CP interval using F
@@ -248,12 +248,12 @@ WbinoCI_lower<-function(x,n,conf.level=0.95,details=FALSE){
   alpha<-1-conf.level
   if(details==T){
     sample<-c(0:n)
-    CIM<-cbind(lcp_bino(0:n,n,alpha,1e-12),1)
+    CIM<-cbind(lcp_bino(0:n,n,2*alpha,1e-12),1)
     colnames(CIM)<-c("lower","upper")
     #icp<-Icp(CIM,1e-12,n)
     re<-list(CI=cbind(sample,CIM))
   }else{
-    CI<-cbind(lcp_bino(x,n,alpha,1e-12),1)
+    CI<-cbind(lcp_bino(x,n,2*alpha,1e-12),1)
     colnames(CI)<-c("lower","upper")
     sample<-x
     re<-list(CI=cbind(sample,CI))
@@ -280,12 +280,12 @@ WbinoCI_upper<-function(x,n,conf.level=0.95,details=FALSE){
   alpha<-1-conf.level
   if(details==T){
     sample<-c(0:n)
-    CIM<-cbind(0,ucp_bino(0:n,n,alpha,1e-12))
+    CIM<-cbind(0,ucp_bino(0:n,n,2*alpha,1e-12))
     colnames(CIM)<-c("lower","upper")
     #icp<-Icp(CIM,1e-12,n)
     re<-list(CI=cbind(sample,CIM))
   }else{
-    CI<-cbind(0,ucp_bino(x,n,alpha,1e-12))
+    CI<-cbind(0,ucp_bino(x,n,2*alpha,1e-12))
     colnames(CI)<-c("lower","upper")
     sample<-x
     re<-list(CI=cbind(sample,CI))

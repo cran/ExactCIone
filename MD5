@@ -1,6 +1,6 @@
-1e5659540149df683063d9ca979e9246 *DESCRIPTION
+c2a56d94616b3120c9a89936ec38db15 *DESCRIPTION
 ac387c5dc9d288c04dd926b2dfd24918 *NAMESPACE
-86bb327607001f3bbf86fba9e2ae7647 *R/WbinoCI.R
+a3e351a8012592847e7c2a957a637f1a *R/WbinoCI.R
 81e77156173ada19191549586340e018 *R/WhyperCI_M.R
 6029b830621149c4e688a237c34a1428 *R/WhyperCI_N.R
 14de8bbe10c08fbe4513c4aefd31fad2 *R/WpoisCI.R
@@ -8,7 +8,7 @@ ac387c5dc9d288c04dd926b2dfd24918 *NAMESPACE
 0fca9995e77dbab825f550739547f582 *build/vignette.rds
 24c91ff183aff9a95a67b3b19cedc83e *inst/doc/ExactCIone_vignette.R
 7d15306b5fd31fad1702e5091099f5ac *inst/doc/ExactCIone_vignette.Rmd
-ac51d2db40497d397fe82386c5f35e8a *inst/doc/ExactCIone_vignette.html
+2887df852a2b9cfa3a5c78fc7044269c *inst/doc/ExactCIone_vignette.html
 fd58d4353ac112d374de0771a767f90f *man/WbinoCI.Rd
 94124dd51c412b6ad3b597d0f004cc0b *man/WbinoCI_lower.Rd
 93ead2be7cd4e26082219e6a3c3d909d *man/WbinoCI_upper.Rd
